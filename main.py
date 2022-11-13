@@ -216,6 +216,17 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
         reply += '<a href="𝖍𝖙𝖙𝖕𝖘://𝖙.𝖒𝖊/𝖔𝖇𝖎𝖘𝖔𝖋𝖙𝖙">𝕬𝖓𝖉𝖎9919 𝕿𝖊𝖑𝖊𝖌𝖗𝖆𝖒</a>'
         message = await bot.send_message(ev.chat.id,reply,parse_mode='html')
         pass
+    
+    if '/Tutorial' in text:
+        reply = '⚜️Tutorial⚜️\n𝕰𝖘 𝖚𝖓 𝖇𝖔𝖙 𝖕𝖆𝖗𝖆 𝖊𝖑 𝖒𝖆𝖓𝖊𝖏𝖔 𝖉𝖊 𝖆𝖗𝖈𝖍𝖎𝖛𝖔𝖘 𝖊𝖓 𝖙𝖊𝖑𝖊𝖌𝖆𝖒 (𝖉𝖊𝖘𝖈𝖆𝖗𝖌𝖆𝖘/𝖘𝖚𝖇𝖎𝖉𝖆𝖘)\n\n' 
+        reply += '<a href=" Cuando descarguen todo Tinen q hacer lo siguiente BUSCAN LA CARPETA DONDE SE DESCARGARON LAS COSAS Y AL FINAL DE CADA ARCHIVO BAN A VER Q DISE : "> Ejemplo : ElHombrDToronto2022cssr16.parte1__.rar </a>\n'
+        reply += '<a href="TINEN Q CAMBIAR ESO Q DICE "> * parte2__.rar *   POR   * 7z.001 * </a>'
+        reply += '<a href=" Ejemplo: "> , </a>'
+        reply += '<a href=" ElHombrDToronto2022cssr16.7z.001 "> , </a>'
+        reply += '<a href=" ElHombrDToronto2022cssr16.7z.002 "> , </a>'
+        reply += '<a href=" ElHombrDToronto2022cssr16.7z.003 "> , </a>'
+        reply += '<a href=" Eso seria todo : "> ya deveria descomprimir sin problemas </a>'
+    
     if '/add' in text and username in godlist:
         usernameadd = text.split(' ')[1]
         tl_admin_users.append(usernameadd)
