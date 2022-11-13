@@ -226,8 +226,12 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
         reply += '<a href=" ElHombrDToronto2022cssr16.7z.002 "> , </a>'
         reply += '<a href=" ElHombrDToronto2022cssr16.7z.003 "> , </a>'
         reply += '<a href=" Eso seria todo : "> ya deveria descomprimir sin problemas </a>'
-    
-    if '/add' in text and username in godlist:
+        message = await bot.send_message(ev.chat.id,reply,parse_mode='html')
+        pass
+   
+
+
+   if '/add' in text and username in godlist:
         usernameadd = text.split(' ')[1]
         tl_admin_users.append(usernameadd)
         print(tl_admin_users)
