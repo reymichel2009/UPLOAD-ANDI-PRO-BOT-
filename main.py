@@ -76,13 +76,13 @@ async def download_progress(dl, filename, currentBits, totalBits, speed, totalti
         message = args[2]
 
         if True:
-            msg = '⚜️ 𝕯𝖊𝖘𝖈𝖆𝖗𝖌𝖆𝖓𝖉𝖔 𝖆𝖗𝖈𝖍𝖎𝖛𝖔....\n'
-            msg += '🗃 𝕬𝖗𝖈𝖍𝖎𝖛𝖔: ' + filename + ''
+            msg = '⚜️ Descargando Archivo....\n'
+            msg += '🗃 Archivo: ' + filename + ''
             msg += '\n' + text_progres(currentBits, totalBits) + ' ' + str(porcent(currentBits, totalBits)) + '%\n' + '\n'
-            msg += '🗂 𝕿𝖔𝖙𝖆𝖑: ' + sizeof_fmt(totalBits) + '\n'
-            msg += '📦 𝕯𝖊𝖘𝖈𝖆𝖗𝖌𝖆𝖉𝖔: ' + sizeof_fmt(currentBits) + '\n'
-            msg += '🚀 𝖛𝖊𝖑𝖔𝖈𝖎𝖉𝖆𝖉: ' + sizeof_fmt(speed) + '/s\n'
-            msg += '⏱ 𝕿𝖎𝖊𝖒𝖕𝖔 𝖉𝖊 𝕯𝖊𝖘𝖈𝖆𝖗𝖌𝖆: ' + str(time.strftime('%H:%M:%S', time.gmtime(totaltime))) + 's\n\n'
+            msg += '🗂 Tamaño Total: ' + sizeof_fmt(totalBits) + '\n'
+            msg += '📦 Descargado: ' + sizeof_fmt(currentBits) + '\n'
+            msg += '🚀 Velocidad: ' + sizeof_fmt(speed) + '/s\n'
+            msg += '⏱ Tiempo de descarga: ' + str(time.strftime('%H:%M:%S', time.gmtime(totaltime))) + 's\n\n'
             await bot.edit_message(ev.chat,message,text=msg)
 
     except Exception as ex:
@@ -102,17 +102,17 @@ def upload_progress(filename, currentBits, totalBits, speed, totaltime, args):
             msg = '⚜️ 𝕾𝖚𝖇𝖎𝖊𝖓𝖉𝖔 𝖆𝖗𝖈𝖍𝖎𝖛𝖔....\n'
             msg += '🗃 𝕬𝖗𝖈𝖍𝖎𝖛𝖔: ' + filename + ''
             msg += '\n' + text_progres(currentBits, totalBits) + ' ' + str(porcent(currentBits, totalBits)) + '%\n' + '\n'
-            msg += '🗂 𝕿𝖔𝖙𝖆𝖑: ' + sizeof_fmt(totalBits) + '\n'
-            msg += '📤 𝕾𝖚𝖇𝖎𝖉𝖔: ' + sizeof_fmt(currentBits) + '\n'
-            msg += '🚀 𝖛𝖊𝖑𝖔𝖈𝖎𝖉𝖆𝖉: ' + sizeof_fmt(speed) + '/s\n'
-            msg += '⏱ 𝕿𝖎𝖊𝖒𝖕𝖔 𝖉𝖊 𝕯𝖊𝖘𝖈𝖆𝖗𝖌𝖆: ' + str(time.strftime('%H:%M:%S', time.gmtime(totaltime))) + 's\n\n'
+            msg += '🗂 Tamaño Total: ' + sizeof_fmt(totalBits) + '\n'
+            msg += '📤 Subido: ' + sizeof_fmt(currentBits) + '\n'
+            msg += '🚀 Velocidad: ' + sizeof_fmt(speed) + '/s\n'
+            msg += '⏱ Tiempo de descarga: ' + str(time.strftime('%H:%M:%S', time.gmtime(totaltime))) + 's\n\n'
             STORE_UPLOADER[filename] = msg
     
     except Exception as ex:
         print(str(ex))
 
 async def compress(bot,ev,text,message,username):
-        await  bot.edit_message(ev.chat,message,'📚𝕮𝖔𝖒𝖕𝖗𝖎𝖒𝖎𝖊𝖓𝖉𝖔✂️...')
+        await  bot.edit_message(ev.chat,message,'📚Comprimiendo✂️...')
         text = str(text).replace('/rar ','')
         index = 0
         range = 0
@@ -177,7 +177,7 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
 
     try:
         if ev.message.file:
-            message = await bot.send_message(ev.chat.id,'⚙️𝕻𝖗𝖔𝖈𝖊𝖘𝖆𝖓𝖉𝖔 𝕬𝖗𝖈𝖍𝖎𝖛𝖔...📝')
+            message = await bot.send_message(ev.chat.id,'⚙️Procesando Archivo...📝')
             filename = ev.message.file.id + ev.message.file.ext
             if ev.message.file.name:
                 filename = ev.message.file.name
@@ -211,9 +211,9 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
         pass
 
     if '/start' in text:
-        reply = '⚜️𝖀𝖕𝖑𝖔𝖆𝖉𝖊𝖗-𝕻𝖗𝖔⚜️\n𝕰𝖘 𝖚𝖓 𝖇𝖔𝖙 𝖕𝖆𝖗𝖆 𝖊𝖑 𝖒𝖆𝖓𝖊𝖏𝖔 𝖉𝖊 𝖆𝖗𝖈𝖍𝖎𝖛𝖔𝖘 𝖊𝖓 𝖙𝖊𝖑𝖊𝖌𝖆𝖒 (𝖉𝖊𝖘𝖈𝖆𝖗𝖌𝖆𝖘/𝖘𝖚𝖇𝖎𝖉𝖆𝖘)\n\n'
-        reply += '<a href="𝖍𝖙𝖙𝖕𝖘://𝖌𝖎𝖙𝖍𝖚𝖇.𝖈𝖔𝖒/𝕬𝖓𝖉𝖎𝖊𝖗𝖑𝖎">𝕬𝖓𝖉𝖎 𝕲𝖎𝖙𝖍𝖚𝖇</a>\n'
-        reply += '<a href="𝖍𝖙𝖙𝖕𝖘://𝖙.𝖒𝖊/𝖔𝖇𝖎𝖘𝖔𝖋𝖙𝖙">𝕬𝖓𝖉𝖎9919 𝕿𝖊𝖑𝖊𝖌𝖗𝖆𝖒</a>'
+        reply = '⚜️Uploader-Channel⚜️\nEs un bot para descargas y subidas gratis para el canal King Media\n\n'
+        reply += '<a href="https://github.com/reymichel2009">Rey Michel Github</a>\n'
+        reply += '<a href="𝖍𝖙𝖙𝖕𝖘://𝖙.𝖒𝖊/reymichel2009">Rey Michel Telegram</a>'
         message = await bot.send_message(ev.chat.id,reply,parse_mode='html')
         pass
     if '/add' in text and username in godlist:
@@ -241,7 +241,7 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
     
     
     if 'http' in text:
-        message = await bot.send_message(ev.chat.id,'⏳𝕻𝖗𝖔𝖈𝖊𝖘𝖆𝖓𝖉𝖔 𝕰𝖓𝖑𝖆𝖈𝖊...🔗')
+        message = await bot.send_message(ev.chat.id,'⏳Procesando Enlace...🔗')
         dl = Downloader(config.ROOT_PATH + username + '/')
         file = await dl.download_url(text,progressfunc=download_progress,args=(bot,ev,message),proxies=proxies)
         if file:
@@ -249,9 +249,9 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
                 await bot.delete_messages(ev.chat,message)
                 await send_root(bot,ev,username)
             else:
-                await bot.edit_message(ev.chat,message,text='💢𝕰𝖗𝖗𝖔𝖗 𝕯𝖊 𝕰𝖓𝖑𝖆𝖈𝖊🔗')
+                await bot.edit_message(ev.chat,message,text='✅El Enlace es Funcional🔗')
         else:
-             await bot.edit_message(ev.chat,message,text='💢𝕰𝖗𝖗𝖔𝖗 𝕯𝖊 𝕰𝖓𝖑𝖆𝖈𝖊🔗')
+             await bot.edit_message(ev.chat,message,text='💢El Enlace es Erroneo🔗')
         return
 
     if '/ls' in text:
@@ -259,7 +259,7 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
         return
 
     if '/rm' in text:
-        message = await bot.send_message(ev.chat.id,'🗑𝕭𝕺𝕽𝕽𝕬𝕹𝕯𝕺...')
+        message = await bot.send_message(ev.chat.id,'🗑Borrando...')
         text = str(text).replace('/rm ','')
         index = 0
         range = 1
@@ -279,6 +279,7 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
               os.unlink(rmfile)
               index += 1
         await bot.delete_messages(ev.chat,message)
+        message = await bot.send.message(ev.chat.id,'Se ha eliminado satisfactoriamente'
         await send_root(bot,ev,username)
         return
 
@@ -305,7 +306,7 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
         message = await bot.send_message(ev.chat.id,'🛠𝕻𝖗𝖔𝖈𝖊𝖘𝖆𝖓𝖉𝖔...')
         listdir = await compress(bot,ev,text,message,username)
         try:
-            await bot.edit_message(ev.chat,message,text=f'🖥𝕮𝖗𝖊𝖆𝖓𝖉𝖔 𝕮𝖚𝖊𝖓𝖙𝖆...')
+            await bot.edit_message(ev.chat,message,text=f'🖥Creando Cuenta...')
             session:RepoUploader = await repouploader.create_session(config.PROXY)
             resultlist = []
             txtsendname = str(listdir[0]).split('/')[-1].split('.')[0].split('_')[0] + '.txt'
@@ -314,9 +315,9 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
                   ffname = str(fi).split('/')[-1]
                   fsize = get_file_size(ffullpath)
                   if fsize>config.SPLIT_FILE:
-                      await bot.edit_message(ev.chat,message,text=f'{ffname} 𝕯𝖊𝖒𝖆𝖘𝖎𝖆𝖉𝖔 𝕲𝖗𝖆𝖓𝖉𝖊, 𝕯𝖊𝖇𝖊 𝕮𝖔𝖒𝖕𝖗𝖎𝖒𝖎𝖗\n𝕾𝖊 𝕮𝖆𝖓𝖈𝖊𝖑𝖔 𝕷𝖆 𝕾𝖚𝖇𝖎𝖉𝖆')
+                      await bot.edit_message(ev.chat,message,text=f'{ffname} El Archivo Es Demasiado Grande, Debe Comprimir\nSe Cancelo la subida')
                       return
-                  await bot.edit_message(ev.chat,message,text=f'📤𝕾𝖚𝖇𝖎𝖊𝖓𝖉𝖔 {ffname}...')
+                  await bot.edit_message(ev.chat,message,text=f'📤Subiendo {ffname}...')
                   result:RepoUploaderResult = None
                   def uploader_func():
                       result = session.upload_file(ffullpath,progress_func=upload_progress,progress_args=(bot,ev,message,loop))
@@ -346,7 +347,7 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
             urls = []
             for item in resultlist:
                 urls.append(item.url)
-            await bot.edit_message(ev.chat,message,text=f'🖇𝕲𝖊𝖓𝖊𝖗𝖆𝖓𝖉𝖔 𝖃𝕯𝕷𝖎𝖓𝖐𝖘📝...')
+            await bot.edit_message(ev.chat,message,text=f'🖇Generando XdLinks📝...')
             data = xdlink.parse(urls)
             if data:
                 txtfile.write(data)
