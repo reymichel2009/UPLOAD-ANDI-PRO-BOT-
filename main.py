@@ -351,7 +351,7 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
             if data:
                 txtfile.write(data)
             else:
-                txtfile.write('🅴🆁🆁🅾🆁 🆇🅳🅻🅸🅽🅺 🅿🅰🆁🆂🅴 🆄🆁🅻🆂')
+                txtfile.write('🅴🆁🆁🅾🆁 🆇🅳🅻🅸🅽🅺 P🅰🆁🆂🅴 🆄🆁🅻🆂')
             txtfile.close()
             await bot.delete_messages(ev.chat,message)
             await bot.send_file(ev.chat,txtsendname,
