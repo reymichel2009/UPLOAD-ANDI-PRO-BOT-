@@ -366,8 +366,29 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
             os.unlink(txtsendname)
         except Exception as ex:
              await bot.send_message(ev.chat.id,str(ex))
+             pass
+    if not '/' in msg:
+        txt = await message.download()
+        with open(txt, "rb") as f:
+            msg = f.read().decode("UTF-8")
+            for i in msg.split('\n'):
+                list.append(i)
+            for i in list:
+                i = i.split('\t')[-1]
+                a = 'https://repotematico.uo.edu.cu/sites/default/files/Paquete_contenido/' + i 
+                converter.append(a)       
+            namet = str(random.randint(11111,9999999)) + '.txt'
+            with open(namet, 'w') as txt:
+                progress = None;progress_args = None
+                links_str = '' 
+                for item in converter:
+                    links_str += item+'\n'
+                txt.write(links_str);txt.close()
+                await message.reply_document(namet,progress=progress, progress_args=progress_args)
+                list.clear();converter.clear()
+            except Exception as ex:
+                 await bot.send_message(ev.chat.id,str(ex))
     pass
-
 
 
 def init():
