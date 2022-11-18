@@ -279,7 +279,7 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
               os.unlink(rmfile)
               index += 1
         await bot.delete_messages(ev.chat,message)
-        message = await bot.send.message(ev.chat.id,'Se ha eliminado satisfactoriamente'
+        message = await bot.send.message(ev.chat.id,'Se ha eliminado satisfactoriamente')
         await send_root(bot,ev,username)
         return
 
