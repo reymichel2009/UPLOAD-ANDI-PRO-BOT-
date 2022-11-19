@@ -344,14 +344,12 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
                 txtsendname = txtname
             txtfile = open(txtsendname,'w')
             urls = []
-            for item in resultlist:
-                urls.append(item.url)
             txtfile.close()
             await bot.delete_messages(ev.chat,message)
             await bot.send_file(ev.chat,txtsendname,
                                 caption=f'{txtsendname}',
                                 thumb='thumb.png',
-                                buttons=[Button.url('🖥ANDI','https://t.me/Andi9919')])
+                                buttons=[Button.url('🖥Rey Michel','https://t.me/reymichel2009')])
             for fitem in listdir:
                 try:
                     os.unlink(fitem)
