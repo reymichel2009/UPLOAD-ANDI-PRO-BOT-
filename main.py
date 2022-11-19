@@ -344,6 +344,8 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
                 txtsendname = txtname
             txtfile = open(txtsendname,'w')
             urls = []
+            for item in resultlist:
+                urls.append(item.url)
             txtfile.close()
             await bot.delete_messages(ev.chat,message)
             await bot.send_file(ev.chat,txtsendname,
