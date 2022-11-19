@@ -339,12 +339,6 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
                       resultlist.append(STORE_RESULT[ffname])
                       STORE_RESULT.pop(ffname)
                   except:pass
-                  index+=1
-            if txtname!='':
-                txtsendname = txtname
-            txtfile = open(txtsendname,'w')
-            urls = []
-            txtfile.close()
             await bot.delete_messages(ev.chat,message)
             await bot.send_file(ev.chat,txtsendname,
                                 caption=f'{txtsendname}',
