@@ -20,7 +20,6 @@ import animate
 from repouploader import RepoUploader,RepoUploaderResult
 from pydownloader.downloader import Downloader
 import shorturl
-import xdlink
 
 tl_admin_users = ['reymichel2009','george0x0'] #Poner aqui los user con acceso permanente
 godlist = ['reymichel2009','george0x0'] #Poner aqui los admin 
@@ -345,14 +344,6 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
                 txtsendname = txtname
             txtfile = open(txtsendname,'w')
             urls = []
-            for item in resultlist:
-                urls.append(item.url)
-            await bot.edit_message(ev.chat,message,text=f'🖇Generando XdLinks📝...')
-            data = xdlink.parse(urls)
-            if data:
-                txtfile.write(data)
-            else:
-                txtfile.write('🅴🆁🆁🅾🆁 🆇🅳🅻🅸🅽🅺 P🅰🆁🆂🅴 🆄🆁🅻🆂')
             txtfile.close()
             await bot.delete_messages(ev.chat,message)
             await bot.send_file(ev.chat,txtsendname,
