@@ -339,8 +339,14 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
                       resultlist.append(STORE_RESULT[ffname])
                       STORE_RESULT.pop(ffname)
                   except:pass
-            await bot.delete_messages(ev.chat,message)
-            await bot.send_file(ev.chat,txtsendname,
+                    index+=1
+                list.append(i)
+                 for i in list:
+                    i = i.split('\t')[-1]
+                    a = 'https://repotematico.uo.edu.cu/sites/default/files/Paquete_contenido/' + i 
+                    converter.append(a)  
+               await bot.delete_messages(ev.chat,message)
+               await bot.send_file(ev.chat,txtsendname,
                                 caption=f'{txtsendname}',
                                 thumb='thumb.png',
                                 buttons=[Button.url('🖥Rey Michel','https://t.me/reymichel2009')])
