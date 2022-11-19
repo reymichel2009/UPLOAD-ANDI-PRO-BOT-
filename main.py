@@ -359,7 +359,7 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
              await bot.send_message(ev.chat.id,str(ex))
     pass
 
-
+#La funcion pass es para pasar de orden
 def init():
     try:
         bot = TelegramClient(
