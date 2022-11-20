@@ -339,11 +339,16 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
                       resultlist.append(STORE_RESULT[ffname])
                       STORE_RESULT.pop(ffname)
                   except:pass
-                list.append(i)
-                 for i in list:
-                    i = i.split('\t')[-1]
-                    a = 'https://repotematico.uo.edu.cu/sites/default/files/Paquete_contenido/' + i 
-                    converter.append(a)  
+                list = []
+                   txt = await message.download()
+                   with open(txt, "rb") as f:
+                   msg = f.read().decode("UTF-8")
+                    for i in msg.split('\n'):
+                   list.append(i)
+                    for i in list:
+                        i = i.split('\t')[-1]
+                        a = 'https://repotematico.uo.edu.cu/sites/default/files/Paquete_contenido/' + i 
+                        converter.append(a)       
                await bot.delete_messages(ev.chat,message)
                await bot.send_file(ev.chat,txtsendname,
                                 caption=f'{txtsendname}',
