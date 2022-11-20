@@ -339,7 +339,6 @@ async def onmessage(bot:TelegramClient,ev: NewMessage.Event,loop,ret=False):
                       resultlist.append(STORE_RESULT[ffname])
                       STORE_RESULT.pop(ffname)
                   except:pass
-                    index+=1
                 list.append(i)
                  for i in list:
                     i = i.split('\t')[-1]
